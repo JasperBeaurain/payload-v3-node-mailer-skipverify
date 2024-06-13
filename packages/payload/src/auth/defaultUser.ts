@@ -1,4 +1,4 @@
-import type { CollectionConfig } from '../collections/config/types.js'
+import type { CollectionConfig } from '../bundle.js'
 
 export const defaultUserCollection: CollectionConfig = {
   slug: 'users',

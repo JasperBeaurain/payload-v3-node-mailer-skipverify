@@ -1,9 +1,7 @@
-import type { SanitizedCollectionConfig } from '../../../collections/config/types.js'
-import type { Payload } from '../../../index.js'
-import type { PayloadRequestWithData } from '../../../types/index.js'
+import type { Payload, PayloadRequestWithData, SanitizedCollectionConfig } from '../../../bundle.js'
 
-import { ValidationError } from '../../../errors/index.js'
-import { generatePasswordSaltHash } from './generatePasswordSaltHash.js'
+import { ValidationError } from '../../../bundle.js'
+import { generatePasswordSaltHash } from './generatePasswordSaltHash.js' // adjusted
 
 type Args = {
   collection: SanitizedCollectionConfig

@@ -1,4 +1,4 @@
-import type { PayloadRequestWithData } from '../types/index.js'
+import type { PayloadRequestWithData } from '../bundle.js'
 
 type Args = {
   collectionSlug: string

@@ -2,7 +2,7 @@ import type { Where } from 'payload/bundle'
 
 import httpStatus from 'http-status'
 import { isNumber } from 'payload/bundle'
-import { findOperation } from 'payload/server'
+import { findOperation } from 'payload/bundle'
 
 import type { CollectionRouteHandler } from '../types.js'
 

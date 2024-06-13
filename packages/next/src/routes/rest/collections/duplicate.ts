@@ -1,7 +1,7 @@
 import { getTranslation } from '@payloadcms/translations'
 import httpStatus from 'http-status'
 import { isNumber } from 'payload/bundle'
-import { duplicateOperation } from 'payload/server'
+import { duplicateOperation } from 'payload/bundle'
 
 import type { CollectionRouteHandlerWithID } from '../types.js'
 

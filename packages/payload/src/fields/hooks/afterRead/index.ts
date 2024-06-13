@@ -1,9 +1,11 @@
-import type { SanitizedCollectionConfig } from '../../../collections/config/types.js'
-import type { SanitizedGlobalConfig } from '../../../globals/config/types.js'
-import type { PayloadRequestWithData, RequestContext } from '../../../types/index.js'
+import type {
+  PayloadRequestWithData,
+  RequestContext,
+  SanitizedCollectionConfig,
+  SanitizedGlobalConfig,
+} from '../../../bundle.js'
 
-import { deepCopyObject } from '../../../utilities/deepCopyObject.js'
-import { traverseFields } from './traverseFields.js'
+import { afterReadTraverseFields, deepCopyObject } from '../../../bundle.js'
 
 type Args = {
   collection: SanitizedCollectionConfig | null
@@ -62,7 +64,7 @@ export async function afterRead<T = any>(args: Args): Promise<T> {
 
   const currentDepth = incomingCurrentDepth || 1
 
-  traverseFields({
+  afterReadTraverseFields({
     collection,
     context,
     currentDepth,

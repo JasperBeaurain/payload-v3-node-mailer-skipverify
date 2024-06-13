@@ -1,8 +1,8 @@
-import type { Field } from '../../fields/config/types.js'
+import type { Field } from '../../bundle.js'
 
-import { email } from '../../fields/validations.js'
+import { email } from '../../bundle.js'
 
-const baseAuthFields: Field[] = [
+export const baseAuthFields: Field[] = [
   {
     name: 'email',
     type: 'email',
@@ -37,5 +37,3 @@ const baseAuthFields: Field[] = [
     hidden: true,
   },
 ]
-
-export default baseAuthFields

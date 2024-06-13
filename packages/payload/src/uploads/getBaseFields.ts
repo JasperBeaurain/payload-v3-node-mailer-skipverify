@@ -1,9 +1,6 @@
-import type { CollectionConfig } from '../collections/config/types.js'
-import type { Config } from '../config/types.js'
-import type { Field } from '../fields/config/types.js'
-import type { UploadConfig } from './types.js'
+import type { CollectionConfig, Config, Field, UploadConfig } from '../bundle.js'
 
-import { mimeTypeValidator } from './mimeTypeValidator.js'
+import { mimeTypeValidator } from './mimeTypeValidator.js' // adjusted
 
 type GenerateURLArgs = {
   collectionSlug: string

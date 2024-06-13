@@ -1,11 +1,13 @@
 import fs from 'fs'
 import { promisify } from 'util'
 
-import type { SanitizedCollectionConfig } from '../collections/config/types.js'
-import type { SanitizedConfig } from '../config/types.js'
-import type { PayloadRequestWithData } from '../types/index.js'
+import type {
+  PayloadRequestWithData,
+  SanitizedCollectionConfig,
+  SanitizedConfig,
+} from '../bundle.js'
 
-import { mapAsync } from '../utilities/mapAsync.js'
+import { mapAsync } from '../utilities/mapAsync.js' // adjusted
 
 const unlinkFile = promisify(fs.unlink)
 

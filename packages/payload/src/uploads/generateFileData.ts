@@ -5,20 +5,24 @@ import fs from 'fs'
 import mkdirp from 'mkdirp'
 import sanitize from 'sanitize-filename'
 
-import type { Collection } from '../collections/config/types.js'
-import type { SanitizedConfig } from '../config/types.js'
-import type { PayloadRequestWithData } from '../types/index.js'
-import type { FileData, FileToSave, ProbedImageSize, UploadEdits } from './types.js'
+import type {
+  Collection,
+  FileData,
+  FileToSave,
+  PayloadRequestWithData,
+  ProbedImageSize,
+  SanitizedConfig,
+  UploadEdits,
+} from '../bundle.js'
 
-import { FileRetrievalError, FileUploadError, MissingFile } from '../errors/index.js'
-import { canResizeImage } from './canResizeImage.js'
-import { cropImage } from './cropImage.js'
-import { getExternalFile } from './getExternalFile.js'
-import { getFileByPath } from './getFileByPath.js'
-import { getImageSize } from './getImageSize.js'
-import { getSafeFileName } from './getSafeFilename.js'
-import { resizeAndTransformImageSizes } from './imageResizer.js'
-import { isImage } from './isImage.js'
+import { FileRetrievalError, FileUploadError, MissingFile, isImage } from '../bundle.js'
+import { getFileByPath } from '../server.js'
+import { canResizeImage } from './canResizeImage.js' // adjusted
+import { cropImage } from './cropImage.js' // adjusted
+import { getExternalFile } from './getExternalFile.js' // adjusted
+import { getImageSize } from './getImageSize.js' // adjusted
+import { getSafeFileName } from './getSafeFilename.js' // adjusted
+import { resizeAndTransformImageSizes } from './imageResizer.js' // adjusted
 
 type Args<T> = {
   collection: Collection

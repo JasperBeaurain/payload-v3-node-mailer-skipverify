@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { pathToFileURL } from 'url'
 
+import type { MigrationTemplateArgs } from '../../bundle.js'
 import type { Payload } from '../../index.js'
-import type { MigrationTemplateArgs } from '../types.js'
 
 /**
  * Get predefined migration 'up', 'down' and 'imports'

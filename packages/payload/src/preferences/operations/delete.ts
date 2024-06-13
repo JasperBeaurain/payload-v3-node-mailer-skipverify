@@ -1,10 +1,7 @@
-import type { Document, Where } from '../../types/index.js'
-import type { PreferenceRequest } from '../types.js'
+import type { Document, PreferenceRequest, Where } from '../../bundle.js'
 
-import defaultAccess from '../../auth/defaultAccess.js'
-import executeAccess from '../../auth/executeAccess.js'
-import { NotFound } from '../../errors/NotFound.js'
-import { UnauthorizedError } from '../../errors/UnathorizedError.js'
+import defaultAccess from '../../auth/defaultAccess.js' // adjusted
+import { NotFound, UnauthorizedError, executeAccess } from '../../bundle.js'
 
 async function deleteOperation(args: PreferenceRequest): Promise<Document> {
   const {

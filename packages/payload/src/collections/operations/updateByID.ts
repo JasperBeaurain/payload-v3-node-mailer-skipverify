@@ -2,30 +2,32 @@ import type { DeepPartial } from 'ts-essentials'
 
 import httpStatus from 'http-status'
 
-import type { FindOneArgs } from '../../database/types.js'
+import type { Collection, FindOneArgs, PayloadRequestWithData } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
-import type { Collection } from '../config/types.js'
 
-import executeAccess from '../../auth/executeAccess.js'
-import { generatePasswordSaltHash } from '../../auth/strategies/local/generatePasswordSaltHash.js'
-import { hasWhereAccessResult } from '../../auth/types.js'
-import { combineQueries } from '../../database/combineQueries.js'
-import { APIError, Forbidden, NotFound } from '../../errors/index.js'
-import { afterChange } from '../../fields/hooks/afterChange/index.js'
-import { afterRead } from '../../fields/hooks/afterRead/index.js'
-import { beforeChange } from '../../fields/hooks/beforeChange/index.js'
-import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js'
-import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js'
-import { generateFileData } from '../../uploads/generateFileData.js'
-import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js'
-import { uploadFiles } from '../../uploads/uploadFiles.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { getLatestCollectionVersion } from '../../versions/getLatestCollectionVersion.js'
-import { saveVersion } from '../../versions/saveVersion.js'
-import { buildAfterOperation } from './utils.js'
+import { generatePasswordSaltHash } from '../../auth/strategies/local/generatePasswordSaltHash.js' // adjusted
+import {
+  APIError,
+  Forbidden,
+  NotFound,
+  combineQueries,
+  commitTransaction,
+  executeAccess,
+  getLatestCollectionVersion,
+  hasWhereAccessResult,
+  initTransaction,
+  killTransaction,
+  saveVersion,
+} from '../../bundle.js'
+import { afterChange } from '../../fields/hooks/afterChange/index.js' // adjusted
+import { afterRead } from '../../fields/hooks/afterRead/index.js' // adjusted
+import { beforeChange } from '../../fields/hooks/beforeChange/index.js' // adjusted
+import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js' // adjusted
+import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js' // adjusted
+import { generateFileData } from '../../uploads/generateFileData.js' // adjusted
+import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js' // adjusted
+import { uploadFiles } from '../../uploads/uploadFiles.js' // adjusted
+import { buildAfterOperation } from './utils.js' // adjusted
 
 export type Arguments<T extends { [field: number | string | symbol]: unknown }> = {
   autosave?: boolean

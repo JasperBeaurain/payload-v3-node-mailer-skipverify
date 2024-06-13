@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import type { Payload } from '../../types/index.js'
+import type { Payload } from '../../bundle.js'
 import type { AdminInitEvent } from './events/adminInit.js'
 import type { ServerInitEvent } from './events/serverInit.js'
 

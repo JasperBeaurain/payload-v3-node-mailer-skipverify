@@ -1,7 +1,7 @@
 import type { Collection, PayloadRequestWithData, TypeWithID, Where } from 'payload/bundle'
 
 import { Forbidden } from 'payload/bundle'
-import { executeAccess } from 'payload/server'
+import { executeAccess } from 'payload/bundle'
 
 import { endpointsAreDisabled } from '../checkEndpoints.js'
 

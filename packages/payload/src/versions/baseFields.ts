@@ -1,4 +1,4 @@
-import type { Field } from '../fields/config/types.js'
+import type { Field } from '../bundle.js'
 
 export const statuses = [
   {
@@ -11,7 +11,7 @@ export const statuses = [
   },
 ]
 
-const baseVersionFields: Field[] = [
+export const baseVersionFields: Field[] = [
   {
     name: '_status',
     type: 'select',
@@ -26,5 +26,3 @@ const baseVersionFields: Field[] = [
     options: statuses,
   },
 ]
-
-export default baseVersionFields

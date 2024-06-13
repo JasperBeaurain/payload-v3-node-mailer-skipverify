@@ -1,6 +1,6 @@
 'use client'
 import type { Where } from 'payload/bundle'
-import type { PaginatedDocs } from 'payload/server'
+import type { PaginatedDocs } from 'payload/bundle'
 
 import { wordBoundariesRegex } from 'payload/bundle'
 import qs from 'qs'

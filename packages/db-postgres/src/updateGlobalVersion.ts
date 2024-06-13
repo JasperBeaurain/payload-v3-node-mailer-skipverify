@@ -1,5 +1,5 @@
 import type { PayloadRequestWithData, SanitizedGlobalConfig, TypeWithID } from 'payload/bundle'
-import type { TypeWithVersion, UpdateGlobalVersionArgs } from 'payload/server'
+import type { TypeWithVersion, UpdateGlobalVersionArgs } from 'payload/bundle'
 
 import { buildVersionGlobalFields } from 'payload/bundle'
 import toSnakeCase from 'to-snake-case'

@@ -1,7 +1,7 @@
 import httpStatus from 'http-status'
 import { isNumber } from 'payload/bundle'
+import { generatePayloadCookie } from 'payload/bundle'
 import { loginOperation } from 'payload/server'
-import { generatePayloadCookie } from 'payload/server'
 
 import type { CollectionRouteHandler } from '../types.js'
 

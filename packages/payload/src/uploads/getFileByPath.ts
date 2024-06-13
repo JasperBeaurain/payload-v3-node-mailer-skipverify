@@ -2,7 +2,7 @@ import { fileTypeFromFile } from 'file-type'
 import fs from 'fs'
 import path from 'path'
 
-import type { PayloadRequestWithData } from '../types/index.js'
+import type { PayloadRequestWithData } from '../bundle.js'
 
 const mimeTypeEstimate = {
   svg: 'image/svg+xml',

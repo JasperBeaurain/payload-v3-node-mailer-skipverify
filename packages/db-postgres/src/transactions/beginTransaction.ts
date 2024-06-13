@@ -1,4 +1,4 @@
-import type { BeginTransaction } from 'payload/server'
+import type { BeginTransaction } from 'payload/bundle'
 
 import { v4 as uuid } from 'uuid'
 

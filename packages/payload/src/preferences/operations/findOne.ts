@@ -1,6 +1,5 @@
+import type { PreferenceRequest, Where } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { Where } from '../../types/index.js'
-import type { PreferenceRequest } from '../types.js'
 
 async function findOne(
   args: PreferenceRequest,

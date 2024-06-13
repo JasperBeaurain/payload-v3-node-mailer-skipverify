@@ -5,12 +5,14 @@ import type { BeforeOperationHook, Collection } from '../../collections/config/t
 import type { PayloadRequestWithData } from '../../types/index.js'
 import type { Document } from '../../types/index.js'
 
-import { buildAfterOperation } from '../../collections/operations/utils.js'
-import { Forbidden } from '../../errors/index.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { getFieldsToSign } from '../getFieldsToSign.js'
+import { buildAfterOperation } from '../../collections/operations/utils.js' // adjusted
+import {
+  Forbidden,
+  commitTransaction,
+  getFieldsToSign,
+  initTransaction,
+  killTransaction,
+} from '../../bundle.js'
 
 export type Result = {
   exp: number

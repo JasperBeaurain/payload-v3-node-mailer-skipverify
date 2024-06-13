@@ -1,6 +1,6 @@
-import type { Config, SanitizedConfig } from './types.js'
+import type { Config, SanitizedConfig } from '../bundle.js'
 
-import { sanitizeConfig } from './sanitize.js'
+import { sanitizeConfig } from '../server.js'
 
 /**
  * @description Builds and validates Payload configuration

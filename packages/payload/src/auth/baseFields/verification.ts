@@ -1,4 +1,4 @@
-import type { Field, FieldHook } from '../../fields/config/types.js'
+import type { Field, FieldHook } from '../../bundle.js'
 
 const autoRemoveVerificationToken: FieldHook = ({ data, operation, originalDoc, value }) => {
   // If a user manually sets `_verified` to true,
@@ -15,7 +15,7 @@ const autoRemoveVerificationToken: FieldHook = ({ data, operation, originalDoc, 
   return value
 }
 
-export default [
+export const baseVerificationFields = [
   {
     name: '_verified',
     type: 'checkbox',

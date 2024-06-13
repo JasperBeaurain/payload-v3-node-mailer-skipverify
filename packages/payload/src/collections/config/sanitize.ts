@@ -1,22 +1,29 @@
 import merge from 'deepmerge'
 
-import type { Config, SanitizedConfig } from '../../config/types.js'
-import type { CollectionConfig, SanitizedCollectionConfig } from './types.js'
+import type {
+  CollectionConfig,
+  Config,
+  SanitizedCollectionConfig,
+  SanitizedConfig,
+} from '../../bundle.js'
 
-import baseAccountLockFields from '../../auth/baseFields/accountLock.js'
-import baseAPIKeyFields from '../../auth/baseFields/apiKey.js'
-import baseAuthFields from '../../auth/baseFields/auth.js'
-import baseVerificationFields from '../../auth/baseFields/verification.js'
-import { TimestampsRequired } from '../../errors/TimestampsRequired.js'
-import { sanitizeFields } from '../../fields/config/sanitize.js'
-import { fieldAffectsData } from '../../fields/config/types.js'
-import mergeBaseFields from '../../fields/mergeBaseFields.js'
-import { getBaseUploadFields } from '../../uploads/getBaseFields.js'
-import { formatLabels } from '../../utilities/formatLabels.js'
-import { isPlainObject } from '../../utilities/isPlainObject.js'
-import baseVersionFields from '../../versions/baseFields.js'
-import { versionDefaults } from '../../versions/defaults.js'
-import { authDefaults, defaults } from './defaults.js'
+import { baseAccountLockFields } from '../../auth/baseFields/accountLock.js' // adjusted
+import {
+  TimestampsRequired,
+  authDefaults,
+  collectionDefaults,
+  fieldAffectsData,
+  formatLabels,
+  isPlainObject,
+  sanitizeFields,
+  versionDefaults,
+} from '../../bundle.js' // adjusted
+import { baseAPIKeyFields } from '../../auth/baseFields/apiKey.js' // adjusted
+import { baseAuthFields } from '../../auth/baseFields/auth.js' // adjusted
+import { baseVerificationFields } from '../../auth/baseFields/verification.js' // adjusted
+import mergeBaseFields from '../../fields/mergeBaseFields.js' // adjusted
+import { getBaseUploadFields } from '../../uploads/getBaseFields.js' // adjusted
+import { baseVersionFields } from '../../versions/baseFields.js' // adjusted
 
 export const sanitizeCollection = async (
   config: Config,
@@ -31,7 +38,7 @@ export const sanitizeCollection = async (
   // Make copy of collection config
   // /////////////////////////////////
 
-  const sanitized: CollectionConfig = merge(defaults, collection, {
+  const sanitized: CollectionConfig = merge(collectionDefaults, collection, {
     isMergeableObject: isPlainObject,
   })
 

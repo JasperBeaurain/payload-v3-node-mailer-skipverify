@@ -10,7 +10,7 @@ import { RenderCustomComponent } from '@payloadcms/ui/server'
 import { notFound } from 'next/navigation.js'
 import { type AdminViewProps } from 'payload/bundle'
 import { isNumber, isReactComponentOrFunction, mergeListSearchAndWhere } from 'payload/bundle'
-import { createClientCollectionConfig } from 'payload/server'
+import { createClientCollectionConfig } from 'payload/bundle'
 import React, { Fragment } from 'react'
 
 import type { DefaultListViewProps, ListPreferences } from './Default/types.js'

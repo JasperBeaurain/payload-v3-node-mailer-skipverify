@@ -1,10 +1,12 @@
-import type { SanitizedCollectionConfig } from '../../../collections/config/types.js'
-import type { SanitizedGlobalConfig } from '../../../globals/config/types.js'
-import type { Operation, PayloadRequestWithData, RequestContext } from '../../../types/index.js'
+import type {
+  Operation,
+  PayloadRequestWithData,
+  RequestContext,
+  SanitizedCollectionConfig,
+  SanitizedGlobalConfig,
+} from '../../../bundle.js'
 
-import { ValidationError } from '../../../errors/index.js'
-import { deepCopyObject } from '../../../utilities/deepCopyObject.js'
-import { traverseFields } from './traverseFields.js'
+import { ValidationError, beforeChangeTraverseFields, deepCopyObject } from '../../../bundle.js'
 
 type Args<T> = {
   collection: SanitizedCollectionConfig | null
@@ -46,7 +48,7 @@ export const beforeChange = async <T extends Record<string, unknown>>({
   const mergeLocaleActions = []
   const errors: { field: string; message: string }[] = []
 
-  await traverseFields({
+  await beforeChangeTraverseFields({
     id,
     collection,
     context,

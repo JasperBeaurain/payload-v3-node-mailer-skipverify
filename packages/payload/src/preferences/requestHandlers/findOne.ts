@@ -1,9 +1,8 @@
 import httpStatus from 'http-status'
 
-import type { PayloadHandler } from '../../config/types.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
+import type { PayloadHandler, PayloadRequestWithData } from '../../bundle.js'
 
-import findOne from '../operations/findOne.js'
+import findOne from '../operations/findOne.js' // adjusted
 
 export const findByIDHandler: PayloadHandler = async (incomingReq): Promise<Response> => {
   // We cannot import the addDataAndFileToRequest utility here from the 'next' package because of dependency issues

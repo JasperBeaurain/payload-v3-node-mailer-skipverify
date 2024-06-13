@@ -1,5 +1,5 @@
 import type { PayloadRequestWithData, TypeWithID } from 'payload/bundle'
-import type { CreateVersionArgs, TypeWithVersion } from 'payload/server'
+import type { CreateVersionArgs, TypeWithVersion } from 'payload/bundle'
 
 import { sql } from 'drizzle-orm'
 import { buildVersionCollectionFields } from 'payload/bundle'

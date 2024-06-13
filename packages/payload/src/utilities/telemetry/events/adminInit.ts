@@ -1,9 +1,7 @@
-import type { User } from '../../../auth/types.js'
-import type { Payload } from '../../../index.js'
-import type { PayloadRequestWithData } from '../../../types/index.js'
+import type { Payload, PayloadRequestWithData } from '../../../bundle.js'
 
-import { sendEvent } from '../index.js'
-import { oneWayHash } from '../oneWayHash.js'
+import { sendEvent } from '../index.js' // adjusted
+import { oneWayHash } from '../oneWayHash.js' // adjusted
 
 export type AdminInitEvent = {
   domainID?: string

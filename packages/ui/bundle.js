@@ -65,6 +65,8 @@ const resultClient = await esbuild
 
       //'side-channel',
       'payload',
+      'payload/bundle',
+      'payload/server',
       'payload/*',
       'react',
       'react-dom',
@@ -85,7 +87,7 @@ const resultClient = await esbuild
     sourcemap: true,
   })
   .then((res, err) => {
-    console.log('client.ts and server.ts bundled successfully')
+    console.log('client.ts bundled successfully')
     return res
   })
   .catch(() => process.exit(1))
@@ -100,7 +102,16 @@ const resultServer = await esbuild
     //outfile: 'index.js',
     // IMPORTANT: splitting the client bundle means that the `use client` directive will be lost for every chunk
     splitting: true,
-    external: ['*.scss', '*.css', '@payloadcms/translations', '@payloadcms/graphql'],
+    external: [
+      '*.scss',
+      '*.css',
+      '@payloadcms/translations',
+      '@payloadcms/graphql',
+      'payload/bundle',
+      'payload/server',
+      'payload',
+      'payload/*',
+    ],
     //packages: 'external',
     minify: true, // TODO: set to true later. false ust for testing
     metafile: true,
@@ -109,7 +120,7 @@ const resultServer = await esbuild
     sourcemap: true,
   })
   .then((res, err) => {
-    console.log('client.ts and server.ts bundled successfully')
+    console.log('server.ts bundled successfully')
     return res
   })
   .catch(() => process.exit(1))

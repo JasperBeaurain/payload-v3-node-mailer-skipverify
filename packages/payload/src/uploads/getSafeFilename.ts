@@ -1,9 +1,9 @@
 import sanitize from 'sanitize-filename'
 
-import type { PayloadRequestWithData } from '../types/index.js'
+import type { PayloadRequestWithData } from '../bundle.js'
 
-import docWithFilenameExists from './docWithFilenameExists.js'
-import fileExists from './fileExists.js'
+import docWithFilenameExists from './docWithFilenameExists.js' // adjusted
+import fileExists from './fileExists.js' // adjusted
 
 const incrementName = (name: string) => {
   const extension = name.split('.').pop()

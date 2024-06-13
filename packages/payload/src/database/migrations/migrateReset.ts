@@ -1,12 +1,8 @@
 /* eslint-disable no-restricted-syntax, no-await-in-loop */
-import type { PayloadRequestWithData } from '../../types/index.js'
-import type { BaseDatabaseAdapter } from '../types.js'
+import type { BaseDatabaseAdapter, PayloadRequestWithData } from '../../bundle.js'
 
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { getMigrations } from './getMigrations.js'
-import { readMigrationFiles } from './readMigrationFiles.js'
+import { commitTransaction, getMigrations, initTransaction, killTransaction } from '../../bundle.js'
+import { readMigrationFiles } from '../../server.js'
 
 export async function migrateReset(this: BaseDatabaseAdapter): Promise<void> {
   const { payload } = this

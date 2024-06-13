@@ -2,31 +2,32 @@ import type { DeepPartial } from 'ts-essentials'
 
 import httpStatus from 'http-status'
 
-import type { AccessResult } from '../../config/types.js'
+import type { AccessResult, Collection, PayloadRequestWithData, Where } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { PayloadRequestWithData, Where } from '../../types/index.js'
-import type { BulkOperationResult, Collection } from '../config/types.js'
+import type { BulkOperationResult } from '../config/types.js'
 import type { CreateUpdateType } from './create.js'
 
-import executeAccess from '../../auth/executeAccess.js'
-import { combineQueries } from '../../database/combineQueries.js'
-import { validateQueryPaths } from '../../database/queryValidation/validateQueryPaths.js'
-import { APIError } from '../../errors/index.js'
-import { afterChange } from '../../fields/hooks/afterChange/index.js'
-import { afterRead } from '../../fields/hooks/afterRead/index.js'
-import { beforeChange } from '../../fields/hooks/beforeChange/index.js'
-import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js'
-import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js'
-import { generateFileData } from '../../uploads/generateFileData.js'
-import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js'
-import { uploadFiles } from '../../uploads/uploadFiles.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { buildVersionCollectionFields } from '../../versions/buildCollectionFields.js'
-import { appendVersionToQueryKey } from '../../versions/drafts/appendVersionToQueryKey.js'
-import { saveVersion } from '../../versions/saveVersion.js'
-import { buildAfterOperation } from './utils.js'
+import {
+  APIError,
+  buildVersionCollectionFields,
+  combineQueries,
+  commitTransaction,
+  executeAccess,
+  initTransaction,
+  killTransaction,
+  saveVersion,
+  validateQueryPaths,
+} from '../../bundle.js'
+import { afterChange } from '../../fields/hooks/afterChange/index.js' // adjusted
+import { afterRead } from '../../fields/hooks/afterRead/index.js' // adjusted
+import { beforeChange } from '../../fields/hooks/beforeChange/index.js' // adjusted
+import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js' // adjusted
+import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js' // adjusted
+import { generateFileData } from '../../uploads/generateFileData.js' // adjusted
+import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js' // adjusted
+import { uploadFiles } from '../../uploads/uploadFiles.js' // adjusted
+import { appendVersionToQueryKey } from '../../versions/drafts/appendVersionToQueryKey.js' // adjusted
+import { buildAfterOperation } from './utils.js' // adjusted
 
 export type Arguments<T extends CreateUpdateType> = {
   collection: Collection

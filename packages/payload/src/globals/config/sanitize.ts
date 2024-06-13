@@ -6,7 +6,7 @@ import { sanitizeFields } from '../../fields/config/sanitize.js'
 import { fieldAffectsData } from '../../fields/config/types.js'
 import mergeBaseFields from '../../fields/mergeBaseFields.js'
 import { toWords } from '../../utilities/formatLabels.js'
-import baseVersionFields from '../../versions/baseFields.js'
+import { baseVersionFields } from '../../versions/baseFields.js'
 import { versionDefaults } from '../../versions/defaults.js'
 
 export const sanitizeGlobals = async (

@@ -1,6 +1,6 @@
-import type { Field } from '../../fields/config/types.js'
+import type { Field } from '../../bundle.js'
 
-export default [
+export const baseAccountLockFields = [
   {
     name: 'loginAttempts',
     type: 'number',

@@ -17,7 +17,7 @@ import type {
 import type { PgTableFn } from 'drizzle-orm/pg-core/table'
 import type { Payload } from 'payload'
 import type { PayloadRequestWithData } from 'payload/bundle'
-import type { BaseDatabaseAdapter } from 'payload/server'
+import type { BaseDatabaseAdapter } from 'payload/bundle'
 import type { Pool, PoolConfig } from 'pg'
 
 export type DrizzleDB = NodePgDatabase<Record<string, unknown>>

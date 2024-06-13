@@ -2,10 +2,9 @@ import fs from 'fs'
 import sizeOfImport from 'image-size'
 import { promisify } from 'util'
 
-import type { PayloadRequestWithData } from '../types/index.js'
-import type { ProbedImageSize } from './types.js'
+import type { PayloadRequestWithData, ProbedImageSize } from '../bundle.js'
 
-import { temporaryFileTask } from './tempFile.js'
+import { temporaryFileTask } from './tempFile.js' // adjusted
 
 const { imageSize } = sizeOfImport
 const imageSizePromise = promisify(imageSize)

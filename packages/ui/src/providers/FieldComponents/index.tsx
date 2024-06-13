@@ -1,5 +1,5 @@
 'use client'
-import type { FieldTypes } from 'payload/server'
+import type { FieldTypes } from 'payload/bundle'
 
 import React, { createContext, useContext } from 'react'
 

@@ -1,10 +1,13 @@
 import { URL } from 'url'
 
-import type { Collection } from '../collections/config/types.js'
-import type { SanitizedConfig } from '../config/types.js'
+import type {
+  Collection,
+  PayloadRequestWithData,
+  SanitizedConfig,
+  User,
+  VerifyConfig,
+} from '../bundle.js'
 import type { InitializedEmailAdapter } from '../email/types.js'
-import type { PayloadRequestWithData } from '../types/index.js'
-import type { User, VerifyConfig } from './types.js'
 
 type Args = {
   collection: Collection

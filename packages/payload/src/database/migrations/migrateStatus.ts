@@ -1,9 +1,9 @@
 import { Table } from 'console-table-printer'
 
-import type { BaseDatabaseAdapter } from '../types.js'
+import type { BaseDatabaseAdapter } from '../../bundle.js'
 
-import { getMigrations } from './getMigrations.js'
-import { readMigrationFiles } from './readMigrationFiles.js'
+import { getMigrations } from '../../bundle.js'
+import { readMigrationFiles } from '../../server.js'
 
 export async function migrateStatus(this: BaseDatabaseAdapter): Promise<void> {
   const { payload } = this

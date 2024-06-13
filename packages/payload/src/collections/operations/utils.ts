@@ -1,16 +1,22 @@
-import type { forgotPasswordOperation } from '../../auth/operations/forgotPassword.js'
-import type { loginOperation } from '../../auth/operations/login.js'
-import type { refreshOperation } from '../../auth/operations/refresh.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
-import type { AfterOperationHook, SanitizedCollectionConfig, TypeWithID } from '../config/types.js'
-import type { countOperation } from './count.js'
-import type { createOperation } from './create.js'
-import type { deleteOperation } from './delete.js'
-import type { deleteByIDOperation } from './deleteByID.js'
-import type { findOperation } from './find.js'
-import type { findByIDOperation } from './findByID.js'
-import type { updateOperation } from './update.js'
-import type { updateByIDOperation } from './updateByID.js'
+import type {
+  CollectionAfterOperationHook,
+  PayloadRequestWithData,
+  SanitizedCollectionConfig,
+  TypeWithID,
+  countOperation,
+  findByIDOperation,
+  findOperation,
+} from '../../bundle.js'
+import type {
+  createOperation,
+  deleteByIDOperation,
+  deleteOperation,
+  forgotPasswordOperation,
+  loginOperation,
+  refreshOperation,
+  updateByIDOperation,
+  updateOperation,
+} from '../../server.js'
 
 export type AfterOperationMap<T extends TypeWithID> = {
   count: typeof countOperation
@@ -100,7 +106,7 @@ export const buildAfterOperation = async <
   let newResult = result
 
   await args.collection.config.hooks.afterOperation.reduce(
-    async (priorHook, hook: AfterOperationHook<T>) => {
+    async (priorHook, hook: CollectionAfterOperationHook<T>) => {
       await priorHook
 
       const hookResult = await hook({

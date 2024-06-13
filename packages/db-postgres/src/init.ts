@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import type { SanitizedCollectionConfig } from 'payload/bundle'
-import type { Init } from 'payload/server'
+import type { Init } from 'payload/bundle'
 
 import { pgEnum, pgSchema, pgTable } from 'drizzle-orm/pg-core'
 import { buildVersionCollectionFields, buildVersionGlobalFields } from 'payload/bundle'

@@ -1,19 +1,22 @@
+import type { Collection, Document, PayloadRequestWithData } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { Document, PayloadRequestWithData } from '../../types/index.js'
-import type { BeforeOperationHook, Collection } from '../config/types.js'
+import type { BeforeOperationHook } from '../config/types.js'
 
-import executeAccess from '../../auth/executeAccess.js'
-import { hasWhereAccessResult } from '../../auth/types.js'
-import { combineQueries } from '../../database/combineQueries.js'
-import { Forbidden, NotFound } from '../../errors/index.js'
-import { afterRead } from '../../fields/hooks/afterRead/index.js'
-import { deleteUserPreferences } from '../../preferences/deleteUserPreferences.js'
-import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { deleteCollectionVersions } from '../../versions/deleteCollectionVersions.js'
-import { buildAfterOperation } from './utils.js'
+import {
+  Forbidden,
+  NotFound,
+  combineQueries,
+  commitTransaction,
+  deleteCollectionVersions,
+  executeAccess,
+  hasWhereAccessResult,
+  initTransaction,
+  killTransaction,
+} from '../../bundle.js'
+import { afterRead } from '../../fields/hooks/afterRead/index.js' // adjusted
+import { deleteUserPreferences } from '../../preferences/deleteUserPreferences.js' // adjusted
+import { deleteAssociatedFiles } from '../../uploads/deleteAssociatedFiles.js' // adjusted
+import { buildAfterOperation } from './utils.js' // adjusted
 
 export type Arguments = {
   collection: Collection

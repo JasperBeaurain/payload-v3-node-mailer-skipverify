@@ -2,14 +2,10 @@ import crypto from 'crypto'
 import httpStatus from 'http-status'
 import { URL } from 'url'
 
-import type { Collection } from '../../collections/config/types.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
+import type { Collection, PayloadRequestWithData } from '../../bundle.js'
 
-import { buildAfterOperation } from '../../collections/operations/utils.js'
-import { APIError } from '../../errors/index.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
+import { APIError, commitTransaction, initTransaction, killTransaction } from '../../bundle.js'
+import { buildAfterOperation } from '../../collections/operations/utils.js' // adjusted
 
 export type Arguments = {
   collection: Collection

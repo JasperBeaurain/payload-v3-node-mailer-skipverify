@@ -1,18 +1,20 @@
 import jwt from 'jsonwebtoken'
 
-import type { Collection } from '../../collections/config/types.js'
+import type { Collection, PayloadRequestWithData, User } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
-import type { User } from '../types.js'
 
+import {
+  AuthenticationError,
+  LockedAuth,
+  ValidationError,
+  commitTransaction,
+  getFieldsToSign,
+  initTransaction,
+  killTransaction,
+} from '../../bundle.js'
 import { buildAfterOperation } from '../../collections/operations/utils.js'
-import { AuthenticationError, LockedAuth, ValidationError } from '../../errors/index.js'
 import { afterRead } from '../../fields/hooks/afterRead/index.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
 import sanitizeInternalFields from '../../utilities/sanitizeInternalFields.js'
-import { getFieldsToSign } from '../getFieldsToSign.js'
 import isLocked from '../isLocked.js'
 import { authenticateLocalStrategy } from '../strategies/local/authenticate.js'
 import { incrementLoginAttempts } from '../strategies/local/incrementLoginAttempts.js'

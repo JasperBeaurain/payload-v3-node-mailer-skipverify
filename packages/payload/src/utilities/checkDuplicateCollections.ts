@@ -1,6 +1,6 @@
-import type { SanitizedCollectionConfig } from '../collections/config/types.js'
+import type { SanitizedCollectionConfig } from '../bundle.js'
 
-import { DuplicateCollection } from '../errors/DuplicateCollection.js'
+import { DuplicateCollection } from '../bundle.js'
 
 const getDuplicates = (arr: string[]) => arr.filter((item, index) => arr.indexOf(item) !== index)
 

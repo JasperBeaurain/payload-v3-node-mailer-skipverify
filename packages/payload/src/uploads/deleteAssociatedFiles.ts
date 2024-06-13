@@ -1,12 +1,15 @@
 import fs from 'fs'
 
-import type { SanitizedCollectionConfig } from '../collections/config/types.js'
-import type { SanitizedConfig } from '../config/types.js'
-import type { PayloadRequestWithData } from '../types/index.js'
-import type { FileData, FileToSave } from './types.js'
+import type {
+  FileData,
+  FileToSave,
+  PayloadRequestWithData,
+  SanitizedCollectionConfig,
+  SanitizedConfig,
+} from '../bundle.js'
 
-import { ErrorDeletingFile } from '../errors/index.js'
-import fileExists from './fileExists.js'
+import { ErrorDeletingFile } from '../bundle.js'
+import fileExists from './fileExists.js' // adjusted
 
 type Args = {
   collectionConfig: SanitizedCollectionConfig

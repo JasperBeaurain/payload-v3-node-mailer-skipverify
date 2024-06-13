@@ -1,5 +1,5 @@
 import type { Payload } from 'payload'
-import type { DatabaseAdapterObj } from 'payload/server'
+import type { DatabaseAdapterObj } from 'payload/bundle'
 
 import fs from 'fs'
 import path from 'path'

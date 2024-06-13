@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import type { Collection } from '../../collections/config/types.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
-import type { ClientUser, User } from '../types.js'
+import type { ClientUser, Collection, PayloadRequestWithData, User } from '../../bundle.js'
 
 export type MeOperationResult = {
   collection?: string

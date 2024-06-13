@@ -1,6 +1,6 @@
 import httpStatus from 'http-status'
 import { isNumber } from 'payload/bundle'
-import { updateOperationGlobal } from 'payload/server'
+import { updateOperationGlobal } from 'payload/bundle'
 
 import type { GlobalRouteHandler } from '../types.js'
 

@@ -1,16 +1,17 @@
 import httpStatus from 'http-status'
 import jwt from 'jsonwebtoken'
 
-import type { Collection } from '../../collections/config/types.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
+import type { Collection, PayloadRequestWithData } from '../../bundle.js'
 
-import { APIError } from '../../errors/index.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { getFieldsToSign } from '../getFieldsToSign.js'
-import { authenticateLocalStrategy } from '../strategies/local/authenticate.js'
-import { generatePasswordSaltHash } from '../strategies/local/generatePasswordSaltHash.js'
+import {
+  APIError,
+  commitTransaction,
+  getFieldsToSign,
+  initTransaction,
+  killTransaction,
+} from '../../bundle.js'
+import { authenticateLocalStrategy } from '../strategies/local/authenticate.js' // adjusted
+import { generatePasswordSaltHash } from '../strategies/local/generatePasswordSaltHash.js' // adjusted
 
 export type Result = {
   token?: string

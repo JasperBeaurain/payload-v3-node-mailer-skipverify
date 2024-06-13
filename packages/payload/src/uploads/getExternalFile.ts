@@ -1,7 +1,6 @@
-import type { PayloadRequestWithData } from '../types/index.js'
-import type { File, FileData, UploadConfig } from './types.js'
+import type { File, FileData, PayloadRequestWithData, UploadConfig } from '../bundle.js'
 
-import { APIError } from '../errors/index.js'
+import { APIError } from '../bundle.js'
 
 type Args = {
   data: FileData

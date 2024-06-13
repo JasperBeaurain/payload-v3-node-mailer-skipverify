@@ -1,8 +1,7 @@
-import type { PreferenceUpdateRequest } from '../types.js'
+import type { PreferenceUpdateRequest } from '../../bundle.js'
 
-import defaultAccess from '../../auth/defaultAccess.js'
-import executeAccess from '../../auth/executeAccess.js'
-import { UnauthorizedError } from '../../errors/UnathorizedError.js'
+import defaultAccess from '../../auth/defaultAccess.js' // adjusted
+import { UnauthorizedError, executeAccess } from '../../bundle.js'
 
 async function update(args: PreferenceUpdateRequest) {
   const {

@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax, no-await-in-loop */
 import type { DrizzleSnapshotJSON } from 'drizzle-kit/payload'
-import type { CreateMigration, MigrationTemplateArgs } from 'payload/server'
+import type { CreateMigration, MigrationTemplateArgs } from 'payload/bundle'
 
 import fs from 'fs'
 import { createRequire } from 'module'

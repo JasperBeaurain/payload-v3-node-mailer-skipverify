@@ -6,14 +6,16 @@ import type {
   BeginTransaction,
   CommitTransaction,
   RollbackTransaction,
-} from './types.js'
+} from '../bundle.js'
 
-import { createMigration } from './migrations/createMigration.js'
-import { migrate } from './migrations/migrate.js'
-import { migrateDown } from './migrations/migrateDown.js'
-import { migrateRefresh } from './migrations/migrateRefresh.js'
-import { migrateReset } from './migrations/migrateReset.js'
-import { migrateStatus } from './migrations/migrateStatus.js'
+import {
+  createMigration,
+  migrate,
+  migrateDown,
+  migrateRefresh,
+  migrateReset,
+  migrateStatus,
+} from '../server.js'
 
 const beginTransaction: BeginTransaction = async () => null
 const rollbackTransaction: RollbackTransaction = async () => null

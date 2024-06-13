@@ -1,6 +1,6 @@
 'use client'
 import type { Where } from 'payload/bundle'
-import type { PaginatedDocs } from 'payload/server'
+import type { PaginatedDocs } from 'payload/bundle'
 
 import {
   ReactSelect,

@@ -1,5 +1,5 @@
 import type { PayloadRequestWithData, SanitizedGlobalConfig } from 'payload/bundle'
-import type { FindGlobalVersions } from 'payload/server'
+import type { FindGlobalVersions } from 'payload/bundle'
 
 import { buildVersionGlobalFields } from 'payload/bundle'
 import toSnakeCase from 'to-snake-case'

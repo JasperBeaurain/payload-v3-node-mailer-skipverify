@@ -1,9 +1,8 @@
 import httpStatus from 'http-status'
 
-import type { PayloadHandler } from '../../config/types.js'
-import type { PayloadRequestWithData } from '../../types/index.js'
+import type { PayloadHandler, PayloadRequestWithData } from '../../bundle.js'
 
-import update from '../operations/update.js'
+import update from '../operations/update.js' // adjusted
 
 export const updateHandler: PayloadHandler = async (incomingReq) => {
   // We cannot import the addDataAndFileToRequest utility here from the 'next' package because of dependency issues

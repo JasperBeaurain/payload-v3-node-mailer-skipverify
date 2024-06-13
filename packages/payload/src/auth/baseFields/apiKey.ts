@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-import type { Field, FieldHook } from '../../fields/config/types.js'
+import type { Field, FieldHook } from '../../bundle.js'
 
 const encryptKey: FieldHook = ({ req, value }) =>
   value ? req.payload.encrypt(value as string) : null
@@ -8,7 +8,7 @@ const decryptKey: FieldHook = ({ req, value }) =>
   value ? req.payload.decrypt(value as string) : undefined
 
 // eslint-disable-next-line no-restricted-exports
-export default [
+export const baseAPIKeyFields = [
   {
     name: 'enableAPIKey',
     type: 'checkbox',

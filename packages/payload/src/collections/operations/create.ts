@@ -2,31 +2,28 @@ import type { MarkOptional } from 'ts-essentials'
 
 import crypto from 'crypto'
 
+import type { Collection, Document, PayloadRequestWithData } from '../../bundle.js'
 import type { GeneratedTypes } from '../../index.js'
-import type { Document, PayloadRequestWithData } from '../../types/index.js'
-import type {
-  AfterChangeHook,
-  BeforeOperationHook,
-  BeforeValidateHook,
-  Collection,
-} from '../config/types.js'
+import type { AfterChangeHook, BeforeOperationHook, BeforeValidateHook } from '../config/types.js'
 
-import executeAccess from '../../auth/executeAccess.js'
-import { sendVerificationEmail } from '../../auth/sendVerificationEmail.js'
-import { registerLocalStrategy } from '../../auth/strategies/local/register.js'
-import { afterChange } from '../../fields/hooks/afterChange/index.js'
-import { afterRead } from '../../fields/hooks/afterRead/index.js'
-import { beforeChange } from '../../fields/hooks/beforeChange/index.js'
-import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js'
-import { generateFileData } from '../../uploads/generateFileData.js'
-import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js'
-import { uploadFiles } from '../../uploads/uploadFiles.js'
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import sanitizeInternalFields from '../../utilities/sanitizeInternalFields.js'
-import { saveVersion } from '../../versions/saveVersion.js'
-import { buildAfterOperation } from './utils.js'
+import { sendVerificationEmail } from '../../auth/sendVerificationEmail.js' // adjusted
+import { registerLocalStrategy } from '../../auth/strategies/local/register.js' // adjusted
+import {
+  commitTransaction,
+  executeAccess,
+  initTransaction,
+  killTransaction,
+  saveVersion,
+} from '../../bundle.js'
+import { afterChange } from '../../fields/hooks/afterChange/index.js' // adjusted
+import { afterRead } from '../../fields/hooks/afterRead/index.js' // adjusted
+import { beforeChange } from '../../fields/hooks/beforeChange/index.js' // adjusted
+import { beforeValidate } from '../../fields/hooks/beforeValidate/index.js' // adjusted
+import { generateFileData } from '../../uploads/generateFileData.js' // adjusted
+import { unlinkTempFiles } from '../../uploads/unlinkTempFiles.js' // adjusted
+import { uploadFiles } from '../../uploads/uploadFiles.js' // adjusted
+import sanitizeInternalFields from '../../utilities/sanitizeInternalFields.js' // adjusted
+import { buildAfterOperation } from './utils.js' // adjusted
 
 export type CreateUpdateType = { [field: number | string | symbol]: unknown }
 

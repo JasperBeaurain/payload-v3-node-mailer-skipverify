@@ -1,11 +1,13 @@
 import type { PayloadRequestWithData } from '../../types/index.js'
 import type { Permissions } from '../types.js'
 
-import { commitTransaction } from '../../utilities/commitTransaction.js'
-import { initTransaction } from '../../utilities/initTransaction.js'
-import { killTransaction } from '../../utilities/killTransaction.js'
-import { adminInit as adminInitTelemetry } from '../../utilities/telemetry/events/adminInit.js'
-import { getAccessResults } from '../getAccessResults.js'
+import {
+  commitTransaction,
+  getAccessResults,
+  initTransaction,
+  killTransaction,
+} from '../../bundle.js'
+import { adminInit as adminInitTelemetry } from '../../server.js'
 
 type Arguments = {
   req: PayloadRequestWithData

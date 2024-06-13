@@ -1,4 +1,4 @@
-import type { DBIdentifierName } from 'payload/server'
+import type { DBIdentifierName } from 'payload/bundle'
 
 import { APIError } from 'payload/bundle'
 import toSnakeCase from 'to-snake-case'

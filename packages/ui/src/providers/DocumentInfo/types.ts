@@ -11,7 +11,7 @@ import type {
   TypeWithID,
   TypeWithTimestamps,
 } from 'payload/bundle'
-import type { PaginatedDocs, TypeWithVersion } from 'payload/server'
+import type { PaginatedDocs, TypeWithVersion } from 'payload/bundle'
 import type React from 'react'
 
 export type DocumentInfoProps = {

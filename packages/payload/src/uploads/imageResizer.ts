@@ -4,20 +4,20 @@ import { fileTypeFromBuffer } from 'file-type'
 import fs from 'fs'
 import sanitize from 'sanitize-filename'
 
-import type { SanitizedCollectionConfig } from '../collections/config/types.js'
-import type { SharpDependency } from '../config/types.js'
-import type { PayloadRequestWithData } from '../types/index.js'
 import type {
   FileSize,
   FileSizes,
   FileToSave,
   ImageSize,
+  PayloadRequestWithData,
   ProbedImageSize,
+  SanitizedCollectionConfig,
+  SharpDependency,
   UploadEdits,
-} from './types.js'
+} from '../bundle.js'
 
-import { isNumber } from '../utilities/isNumber.js'
-import fileExists from './fileExists.js'
+import { isNumber } from '../utilities/isNumber.js' // adjusted
+import fileExists from './fileExists.js' // adjusted
 
 type ResizeArgs = {
   config: SanitizedCollectionConfig
