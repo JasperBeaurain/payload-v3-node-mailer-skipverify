@@ -1,5 +1,5 @@
 'use client'
-import type { FormState } from 'payload/bundle'
+import type { FormState } from 'payload'
 
 import {
   ConfirmPasswordField,
@@ -13,7 +13,7 @@ import {
   useConfig,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { getFormState } from '@payloadcms/ui/server'
+import { getFormState } from '@payloadcms/ui/shared'
 import React from 'react'
 
 export const CreateFirstUserClient: React.FC<{

@@ -2,17 +2,9 @@
 
 import type { FormProps } from '@payloadcms/ui/forms/Form'
 
-import { Form } from '@payloadcms/ui/client'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-
-import { type BlockFields } from '../nodes/BlocksNode.js'
-const baseClass = 'lexical-block'
-import type { ReducedBlock } from '@payloadcms/ui/utilities/buildComponentMap'
-import type { FormState } from 'payload/types'
-
-import { getTranslation } from '@payloadcms/translations'
 import {
   Collapsible,
+  Form,
   Pill,
   SectionTitle,
   ShimmerEffect,
@@ -22,7 +14,15 @@ import {
   useFormSubmitted,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { getFormState } from '@payloadcms/ui/server'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+
+import { type BlockFields } from '../nodes/BlocksNode.js'
+const baseClass = 'lexical-block'
+import type { ReducedBlock } from '@payloadcms/ui/utilities/buildComponentMap'
+import type { FormState } from 'payload'
+
+import { getTranslation } from '@payloadcms/translations'
+import { getFormState } from '@payloadcms/ui/shared'
 import { v4 as uuid } from 'uuid'
 
 import type { ClientComponentProps } from '../../types.js'
@@ -31,10 +31,8 @@ import type { BlocksFeatureClientProps } from '../feature.client.js'
 import { useEditorConfigContext } from '../../../lexical/config/client/EditorConfigProvider.js'
 import { BlockContent } from './BlockContent.js'
 import './index.scss'
-import { removeEmptyArrayValues } from './removeEmptyArrayValues.js'
 
 type Props = {
-  blockFieldWrapperName: string
   children?: React.ReactNode
 
   formData: BlockFields
@@ -46,7 +44,7 @@ type Props = {
 }
 
 export const BlockComponent: React.FC<Props> = (props) => {
-  const { blockFieldWrapperName, formData, nodeKey } = props
+  const { formData, nodeKey } = props
   const config = useConfig()
   const submitted = useFormSubmitted()
   const { id } = useDocumentInfo()
@@ -83,7 +81,7 @@ export const BlockComponent: React.FC<Props> = (props) => {
 
       if (state) {
         setInitialState({
-          ...removeEmptyArrayValues({ fields: state }),
+          ...state,
           blockName: {
             initialValue: '',
             passesCondition: true,
@@ -177,6 +175,7 @@ export const BlockComponent: React.FC<Props> = (props) => {
       </Collapsible>
     )
   }, [
+    classNames,
     fieldMap,
     parentLexicalRichTextField,
     nodeKey,
@@ -184,7 +183,6 @@ export const BlockComponent: React.FC<Props> = (props) => {
     submitted,
     initialState,
     reducedBlock,
-    blockFieldWrapperName,
     onChange,
     schemaFieldsPath,
     path,

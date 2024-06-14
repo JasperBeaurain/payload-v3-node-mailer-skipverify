@@ -1,5 +1,4 @@
-import type { PayloadRequestWithData } from 'payload/bundle'
-import type { DeleteMany } from 'payload/bundle'
+import type { DeleteMany, PayloadRequestWithData } from 'payload'
 
 import { inArray } from 'drizzle-orm'
 import toSnakeCase from 'to-snake-case'

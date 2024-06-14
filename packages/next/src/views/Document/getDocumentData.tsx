@@ -1,12 +1,13 @@
 import type {
   Data,
+  Locale,
   PayloadRequestWithData,
   SanitizedCollectionConfig,
   SanitizedGlobalConfig,
-} from 'payload/bundle'
-import type { Locale } from 'payload/bundle'
+} from 'payload'
 
-import { buildFormState, reduceFieldsToValues } from '@payloadcms/ui/server'
+import { reduceFieldsToValues } from '@payloadcms/ui/shared'
+import { buildFormState } from '@payloadcms/ui/utilities/buildFormState'
 
 export const getDocumentData = async (args: {
   collectionConfig?: SanitizedCollectionConfig
@@ -25,7 +26,7 @@ export const getDocumentData = async (args: {
           id,
           collectionSlug: collectionConfig?.slug,
           globalSlug: globalConfig?.slug,
-          locale: locale.code,
+          locale: locale?.code,
           operation: (collectionConfig && id) || globalConfig ? 'update' : 'create',
           schemaPath: collectionConfig?.slug || globalConfig?.slug,
         },

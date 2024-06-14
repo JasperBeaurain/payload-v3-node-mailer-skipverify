@@ -1,12 +1,12 @@
 import type { I18n } from '@payloadcms/translations'
-import type { Permissions } from 'payload/bundle'
 import type {
+  Permissions,
   SanitizedCollectionConfig,
   SanitizedConfig,
   SanitizedGlobalConfig,
-} from 'payload/bundle'
+} from 'payload'
 
-import { isPlainObject } from 'payload/bundle'
+import { isPlainObject } from 'payload'
 import React from 'react'
 
 import { ShouldRenderTabs } from './ShouldRenderTabs.js'

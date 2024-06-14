@@ -1,8 +1,8 @@
 import type { I18n } from '@payloadcms/translations'
-import type { Field, SanitizedConfig } from 'payload/bundle'
+import type { Field, SanitizedConfig } from 'payload'
 
-import { tabHasName } from 'payload/bundle'
-import { MissingEditorProp } from 'payload/bundle'
+import { MissingEditorProp } from 'payload'
+import { tabHasName } from 'payload/shared'
 
 import type { FieldSchemaMap } from './types.js'
 

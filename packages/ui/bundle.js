@@ -75,8 +75,10 @@ const resultClient = await esbuild
       'crypto',
     ],
     //packages: 'external',
-    minify: true, // TODO: set to true later. false ust for testing
+    minify: true,
     metafile: true,
+    treeShaking: true,
+
     tsconfig: path.resolve(dirname, './tsconfig.json'),
     plugins: [
       removeCSSImports,
@@ -92,38 +94,49 @@ const resultClient = await esbuild
   })
   .catch(() => process.exit(1))
 
-const resultServer = await esbuild
+const resultShared = await esbuild
   .build({
-    entryPoints: ['src/exports/server/index.ts'],
+    entryPoints: ['src/exports/shared/index.ts'],
     bundle: true,
     platform: 'node',
     format: 'esm',
-    outdir: 'dist/exports/server',
+    outdir: 'dist/exports/shared',
     //outfile: 'index.js',
     // IMPORTANT: splitting the client bundle means that the `use client` directive will be lost for every chunk
-    splitting: true,
+    splitting: false,
+    treeShaking: true,
     external: [
       '*.scss',
       '*.css',
-      '@payloadcms/translations',
+      'qs',
+      '@dnd-kit/core',
       '@payloadcms/graphql',
-      'payload/bundle',
-      'payload/server',
+      '@payloadcms/translations',
+      'deep-equal',
+      'react-toastify',
       'payload',
       'payload/*',
+      'react',
+      'react-dom',
+      'next',
+      'react-animate-height',
+      'crypto',
+      '@floating-ui/react',
+      'date-fns',
+      'react-datepicker',
     ],
     //packages: 'external',
-    minify: true, // TODO: set to true later. false ust for testing
+    minify: true,
     metafile: true,
     tsconfig: path.resolve(dirname, './tsconfig.json'),
     plugins: [removeCSSImports, commonjs()],
     sourcemap: true,
   })
   .then((res, err) => {
-    console.log('server.ts bundled successfully')
+    console.log('shared.ts bundled successfully')
     return res
   })
   .catch(() => process.exit(1))
 
 fs.writeFileSync('meta_client.json', JSON.stringify(resultClient.metafile))
-fs.writeFileSync('meta_server.json', JSON.stringify(resultServer.metafile))
+fs.writeFileSync('meta_shared.json', JSON.stringify(resultShared.metafile))

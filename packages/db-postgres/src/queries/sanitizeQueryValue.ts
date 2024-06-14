@@ -1,6 +1,5 @@
-import { type Field, type TabAsField, fieldAffectsData } from 'payload/bundle'
-import { APIError } from 'payload/bundle'
-import { createArrayFromCommaDelineated } from 'payload/bundle'
+import { APIError, type Field, type TabAsField, createArrayFromCommaDelineated } from 'payload'
+import { fieldAffectsData } from 'payload/shared'
 
 import type { PostgresAdapter } from '../types.js'
 

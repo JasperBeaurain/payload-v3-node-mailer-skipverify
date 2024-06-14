@@ -1,8 +1,6 @@
 import type { FormFieldBase } from '@payloadcms/ui/fields/shared'
 import type { FieldMap, ReducedBlock } from '@payloadcms/ui/utilities/buildComponentMap'
-import type { FormState } from 'payload/types'
-import type { Data } from 'payload/types'
-import type { CollapsedPreferences } from 'payload/types'
+import type { CollapsedPreferences, Data, FormState } from 'payload'
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext.js'
 import { getTranslation } from '@payloadcms/translations'
@@ -53,7 +51,6 @@ export const BlockContent: React.FC<Props> = (props) => {
     formData,
     formSchema,
     nodeKey,
-    path,
     reducedBlock: { labels },
     schemaPath,
   } = props
@@ -113,17 +110,21 @@ export const BlockContent: React.FC<Props> = (props) => {
       // does not have, even if it's undefined.
       // Currently, this happens if a block has another sub-blocks field. Inside formData, that sub-blocks field has an undefined blockName property.
       // Inside of fields.data however, that sub-blocks blockName property does not exist at all.
-      function removeUndefinedAndNullRecursively(obj: object) {
-        Object.keys(obj).forEach((key) => {
-          if (obj[key] && typeof obj[key] === 'object') {
-            removeUndefinedAndNullRecursively(obj[key])
-          } else if (obj[key] === undefined || obj[key] === null) {
+      function removeUndefinedAndNullAndEmptyArraysRecursively(obj: object) {
+        for (const key in obj) {
+          const value = obj[key]
+          if (Array.isArray(value) && !value?.length) {
+            delete obj[key]
+          } else if (value && typeof value === 'object') {
+            removeUndefinedAndNullAndEmptyArraysRecursively(value)
+          } else if (value === undefined || value === null) {
             delete obj[key]
           }
-        })
+        }
       }
-      removeUndefinedAndNullRecursively(newFormData)
-      removeUndefinedAndNullRecursively(formData)
+      removeUndefinedAndNullAndEmptyArraysRecursively(newFormData)
+
+      removeUndefinedAndNullAndEmptyArraysRecursively(formData)
 
       // Only update if the data has actually changed. Otherwise, we may be triggering an unnecessary value change,
       // which would trigger the "Leave without saving" dialog unnecessarily

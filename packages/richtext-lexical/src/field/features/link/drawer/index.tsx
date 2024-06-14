@@ -1,5 +1,5 @@
 import type { FormProps } from '@payloadcms/ui/forms/Form'
-import type { FormState } from 'payload/types'
+import type { FormState } from 'payload'
 
 import {
   Drawer,
@@ -11,7 +11,7 @@ import {
   useFieldProps,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { getFormState } from '@payloadcms/ui/server'
+import { getFormState } from '@payloadcms/ui/shared'
 import React, { useCallback, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 

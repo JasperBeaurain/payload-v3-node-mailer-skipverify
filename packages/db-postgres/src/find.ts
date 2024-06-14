@@ -1,5 +1,4 @@
-import type { PayloadRequestWithData, SanitizedCollectionConfig } from 'payload/bundle'
-import type { Find } from 'payload/bundle'
+import type { Find, PayloadRequestWithData, SanitizedCollectionConfig } from 'payload'
 
 import toSnakeCase from 'to-snake-case'
 

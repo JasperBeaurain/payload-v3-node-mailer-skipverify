@@ -1,4 +1,4 @@
-import type { ServerProps } from 'payload/bundle'
+import type { ServerProps } from 'payload'
 
 import { Logout } from '@payloadcms/ui/client'
 import React from 'react'
@@ -9,7 +9,7 @@ import './index.scss'
 
 const baseClass = 'nav'
 
-import { WithServerSideProps } from '@payloadcms/ui/server'
+import { WithServerSideProps } from '@payloadcms/ui/shared'
 
 import { DefaultNavClient } from './index.client.js'
 

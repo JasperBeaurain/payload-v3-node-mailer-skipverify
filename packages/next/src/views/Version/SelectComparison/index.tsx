@@ -1,6 +1,5 @@
 'use client'
-import type { Where } from 'payload/bundle'
-import type { PaginatedDocs } from 'payload/bundle'
+import type { PaginatedDocs, Where } from 'payload'
 
 import {
   ReactSelect,
@@ -9,7 +8,7 @@ import {
   useDocumentInfo,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { formatDate } from '@payloadcms/ui/server'
+import { formatDate } from '@payloadcms/ui/shared'
 import qs from 'qs'
 import React, { useCallback, useEffect, useState } from 'react'
 

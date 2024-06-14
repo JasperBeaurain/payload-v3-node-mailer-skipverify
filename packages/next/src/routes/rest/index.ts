@@ -1,11 +1,11 @@
 import type {
   Collection,
+  Endpoint,
   GlobalConfig,
   PayloadRequest,
   PayloadRequestData,
   SanitizedConfig,
-} from 'payload/bundle'
-import type { Endpoint } from 'payload/bundle'
+} from 'payload'
 
 import httpStatus from 'http-status'
 import { match } from 'path-to-regexp'
@@ -406,6 +406,11 @@ export const POST =
     let req: PayloadRequest
     let res: Response
     let collection: Collection
+
+    const overrideHttpMethod = request.headers.get('X-HTTP-Method-Override')
+    if (overrideHttpMethod === 'GET') {
+      return await GET(config)(request, { params: { slug } })
+    }
 
     try {
       req = await createPayloadRequest({

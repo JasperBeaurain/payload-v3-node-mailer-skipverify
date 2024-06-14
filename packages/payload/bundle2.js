@@ -6,29 +6,31 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 import { commonjs } from '@hyrious/esbuild-plugin-commonjs'
 
-const resultServer = await esbuild
+const resultIndex = await esbuild
   .build({
-    entryPoints: ['src/server.ts'],
+    entryPoints: ['src/exports/index.ts'],
     bundle: true,
     platform: 'node',
     format: 'esm',
-    outfile: 'dist/server.js',
+    outfile: 'dist/exports/index.js',
     splitting: false,
     external: [
+      'lodash',
+      //'joi',
       '*.scss',
       '*.css',
       '@payloadcms/translations',
       'memoizee',
       'pino-pretty',
       'pino',
-      'ajv',
-      'conf',
-      'image-size',
+      //'ajv',
+      //'conf',
+      //'image-size',
     ],
     minify: true,
     metafile: true,
     tsconfig: path.resolve(dirname, './tsconfig.json'),
-    plugins: [commonjs()],
+    // plugins: [commonjs()],
     sourcemap: true,
   })
   .then((res, err) => {
@@ -37,36 +39,37 @@ const resultServer = await esbuild
   })
   .catch(() => process.exit(1))
 
-const resultClientAndServer = await esbuild
+const resultShared = await esbuild
   .build({
-    entryPoints: ['src/bundle.ts'],
+    entryPoints: ['src/exports/shared.ts'],
     bundle: true,
-    platform: 'browser',
+    platform: 'node',
     format: 'esm',
-    outfile: 'dist/bundle.js',
+    outfile: 'dist/exports/shared.js',
     splitting: false,
     external: [
+      'lodash',
       '*.scss',
       '*.css',
       '@payloadcms/translations',
       'memoizee',
       'pino-pretty',
       'pino',
-      'ajv',
-      'conf',
-      'image-size',
+      //'ajv',
+      //'conf',
+      //'image-size',
     ],
     minify: true,
     metafile: true,
     tsconfig: path.resolve(dirname, './tsconfig.json'),
-    plugins: [commonjs()],
+    // plugins: [commonjs()],
     sourcemap: true,
   })
   .then((res, err) => {
-    console.log('payload server bundled successfully')
+    console.log('payload shared bundled successfully')
     return res
   })
   .catch(() => process.exit(1))
 
-fs.writeFileSync('meta_server.json', JSON.stringify(resultServer.metafile))
-fs.writeFileSync('meta_bundle.json', JSON.stringify(resultClientAndServer.metafile))
+fs.writeFileSync('meta_index.json', JSON.stringify(resultIndex.metafile))
+fs.writeFileSync('meta_shared.json', JSON.stringify(resultShared.metafile))

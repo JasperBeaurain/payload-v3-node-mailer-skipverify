@@ -1,7 +1,6 @@
 'use client'
 
-import type { Permissions } from 'payload/bundle'
-import type { PayloadRequestWithData } from 'payload/bundle'
+import type { PayloadRequestWithData, Permissions } from 'payload'
 
 import { useEffect } from 'react'
 

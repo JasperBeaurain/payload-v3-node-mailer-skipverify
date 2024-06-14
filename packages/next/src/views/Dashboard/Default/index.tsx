@@ -1,11 +1,9 @@
-import type { groupNavItems } from '@payloadcms/ui/utilities/groupNavItems'
-import type { Permissions } from 'payload/bundle'
-import type { VisibleEntities } from 'payload/bundle'
-import type { ServerProps } from 'payload/bundle'
+import type { groupNavItems } from '@payloadcms/ui/shared'
+import type { Permissions, ServerProps, VisibleEntities } from 'payload'
 
 import { getTranslation } from '@payloadcms/translations'
 import { Button, Card, Gutter, SetStepNav, SetViewActions } from '@payloadcms/ui/client'
-import { EntityType, WithServerSideProps } from '@payloadcms/ui/server'
+import { EntityType, WithServerSideProps } from '@payloadcms/ui/shared'
 import React, { Fragment } from 'react'
 
 import './index.scss'

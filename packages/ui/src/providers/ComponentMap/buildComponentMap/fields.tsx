@@ -1,17 +1,17 @@
 import type { I18nClient } from '@payloadcms/translations'
 import type {
   CellComponentProps,
+  CustomComponent,
   Field,
   FieldDescriptionProps,
   FieldWithPath,
   LabelProps,
   Option,
   SanitizedConfig,
-} from 'payload/bundle'
-import type { CustomComponent } from 'payload/bundle'
+} from 'payload'
 
-import { MissingEditorProp } from 'payload/bundle'
-import { fieldAffectsData, fieldIsPresentationalOnly } from 'payload/bundle'
+import { MissingEditorProp } from 'payload'
+import { fieldAffectsData, fieldIsPresentationalOnly } from 'payload/shared'
 import React, { Fragment } from 'react'
 
 import type { ArrayFieldProps } from '../../../fields/Array/index.js'
@@ -472,6 +472,7 @@ export const mapFields = (args: {
                 parentPath: path,
                 readOnly: readOnlyOverride,
               }),
+              hideGutter: field.admin?.hideGutter,
               readOnly: field.admin?.readOnly,
               style: field.admin?.style,
               width: field.admin?.width,

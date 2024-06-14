@@ -1,7 +1,6 @@
-import type { PayloadRequestWithData, SanitizedGlobalConfig } from 'payload/bundle'
-import type { FindGlobalVersions } from 'payload/bundle'
+import type { FindGlobalVersions, PayloadRequestWithData, SanitizedGlobalConfig } from 'payload'
 
-import { buildVersionGlobalFields } from 'payload/bundle'
+import { buildVersionGlobalFields } from 'payload'
 import toSnakeCase from 'to-snake-case'
 
 import type { PostgresAdapter } from './types.js'

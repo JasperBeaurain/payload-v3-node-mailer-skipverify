@@ -125,8 +125,7 @@ export const forgotPasswordOperation = async (incomingArgs: Arguments): Promise<
         })
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      email.sendEmail({
+      await email.sendEmail({
         from: `"${email.defaultFromName}" <${email.defaultFromAddress}>`,
         html,
         subject,

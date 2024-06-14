@@ -4,7 +4,7 @@ import type { SerializedEditorState, SerializedParagraphNode, SerializedTextNode
 
 import { expect, test } from '@playwright/test'
 import path from 'path'
-import { wait } from 'payload/utilities'
+import { wait } from 'payload/shared'
 import { fileURLToPath } from 'url'
 
 import type { PayloadTestSDK } from '../../../../../helpers/sdk/index.js'
@@ -920,10 +920,9 @@ describe('lexicalBlocks', () => {
       await wait(300)
 
       await page.click('#action-save', { delay: 100 })
-      await wait(300)
 
       await expect(page.locator('.payload-toast-container')).toContainText(
-        'The following field is invalid',
+        'The following fields are invalid',
       )
       await wait(300)
 

@@ -6,12 +6,13 @@ import type {
   DocumentPreferences,
   FormState,
   InsideFieldsPreferences,
+  PaginatedDocs,
   SanitizedCollectionConfig,
   SanitizedGlobalConfig,
   TypeWithID,
   TypeWithTimestamps,
-} from 'payload/bundle'
-import type { PaginatedDocs, TypeWithVersion } from 'payload/bundle'
+  TypeWithVersion,
+} from 'payload'
 import type React from 'react'
 
 export type DocumentInfoProps = {

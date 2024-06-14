@@ -10,7 +10,13 @@ import { afterChangeTraverseFields, deepCopyObject } from '../../../bundle.js'
 type Args<T> = {
   collection: SanitizedCollectionConfig | null
   context: RequestContext
+  /**
+   * The data before hooks
+   */
   data: Record<string, unknown> | T
+  /**
+   * The data after hooks
+   */
   doc: Record<string, unknown> | T
   global: SanitizedGlobalConfig | null
   operation: 'create' | 'update'
@@ -26,7 +32,6 @@ export const afterChange = async <T extends Record<string, unknown>>({
   collection,
   context,
   data,
-
   doc: incomingDoc,
   global,
   operation,
@@ -43,9 +48,11 @@ export const afterChange = async <T extends Record<string, unknown>>({
     fields: collection?.fields || global?.fields,
     global,
     operation,
+    path: [],
     previousDoc,
     previousSiblingDoc: previousDoc,
     req,
+    schemaPath: [],
     siblingData: data,
     siblingDoc: doc,
   })

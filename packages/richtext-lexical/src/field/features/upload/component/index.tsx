@@ -1,5 +1,5 @@
 'use client'
-import type { ClientCollectionConfig } from 'payload/types'
+import type { ClientCollectionConfig } from 'payload'
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext.js'
 import { useLexicalNodeSelection } from '@lexical/react/useLexicalNodeSelection.js'
@@ -8,13 +8,13 @@ import { getTranslation } from '@payloadcms/translations'
 import {
   Button,
   DrawerToggler,
+  File,
   useConfig,
   useDocumentDrawer,
   useDrawerSlug,
   usePayloadAPI,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { File } from '@payloadcms/ui/client'
 import {
   $getNodeByKey,
   $getSelection,

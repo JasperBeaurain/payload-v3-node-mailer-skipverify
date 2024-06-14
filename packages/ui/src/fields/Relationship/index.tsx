@@ -1,8 +1,7 @@
 'use client'
-import type { Where } from 'payload/bundle'
-import type { PaginatedDocs } from 'payload/bundle'
+import type { PaginatedDocs, Where } from 'payload'
 
-import { wordBoundariesRegex } from 'payload/bundle'
+import { wordBoundariesRegex } from 'payload/shared'
 import qs from 'qs'
 import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 
@@ -201,11 +200,15 @@ const RelationshipField: React.FC<RelationshipFieldProps> = (props) => {
               query.where.and.push(relationFilterOption)
             }
 
-            const response = await fetch(`${serverURL}${api}/${relation}?${qs.stringify(query)}`, {
+            const response = await fetch(`${serverURL}${api}/${relation}`, {
+              body: qs.stringify(query),
               credentials: 'include',
               headers: {
                 'Accept-Language': i18n.language,
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-HTTP-Method-Override': 'GET',
               },
+              method: 'POST',
             })
 
             if (response.ok) {
@@ -326,11 +329,15 @@ const RelationshipField: React.FC<RelationshipFieldProps> = (props) => {
         }
 
         if (!errorLoading) {
-          const response = await fetch(`${serverURL}${api}/${relation}?${qs.stringify(query)}`, {
+          const response = await fetch(`${serverURL}${api}/${relation}`, {
+            body: qs.stringify(query),
             credentials: 'include',
             headers: {
               'Accept-Language': i18n.language,
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-HTTP-Method-Override': 'GET',
             },
+            method: 'POST',
           })
 
           const collection = collections.find((coll) => coll.slug === relation)

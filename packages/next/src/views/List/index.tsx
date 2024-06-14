@@ -1,4 +1,4 @@
-import type { Where } from 'payload/bundle'
+import type { AdminViewProps, Where } from 'payload'
 
 import {
   HydrateClientUser,
@@ -6,11 +6,10 @@ import {
   ListQueryProvider,
   TableColumnsProvider,
 } from '@payloadcms/ui/client'
-import { RenderCustomComponent } from '@payloadcms/ui/server'
+import { RenderCustomComponent } from '@payloadcms/ui/shared'
 import { notFound } from 'next/navigation.js'
-import { type AdminViewProps } from 'payload/bundle'
-import { isNumber, isReactComponentOrFunction, mergeListSearchAndWhere } from 'payload/bundle'
-import { createClientCollectionConfig } from 'payload/bundle'
+import { createClientCollectionConfig, mergeListSearchAndWhere } from 'payload'
+import { isNumber, isReactComponentOrFunction } from 'payload/shared'
 import React, { Fragment } from 'react'
 
 import type { DefaultListViewProps, ListPreferences } from './Default/types.js'
@@ -99,7 +98,7 @@ export const ListView: React.FC<AdminViewProps> = async ({
     const sort =
       query?.sort && typeof query.sort === 'string'
         ? query.sort
-        : listPreferences?.sort || undefined
+        : listPreferences?.sort || collectionConfig.defaultSort || undefined
 
     const data = await payload.find({
       collection: collectionSlug,

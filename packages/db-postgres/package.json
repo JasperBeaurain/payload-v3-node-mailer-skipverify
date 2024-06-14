@@ -1,6 +1,6 @@
 {
   "name": "@payloadcms/db-postgres",
-  "version": "3.0.0-beta.45",
+  "version": "3.0.0-beta.47",
   "description": "The officially supported Postgres database adapter for Payload",
   "homepage": "https://payloadcms.com",
   "repository": {
@@ -36,7 +36,7 @@
   ],
   "scripts": {
     "build": "rimraf .dist && rimraf tsconfig.tsbuildinfo && pnpm build:swc && pnpm build:esbuild && pnpm build:types && pnpm renamePredefinedMigrations",
-    "build:esbuild": "node bundle.js",
+    "build:esbuild": "echo hi2",
     "build:swc": "swc ./src -d ./dist --config-file .swcrc",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "clean": "rimraf {dist,*.tsbuildinfo}",
@@ -51,7 +51,7 @@
     "pg": "8.11.3",
     "prompts": "2.4.2",
     "to-snake-case": "1.0.0",
-    "uuid": "^9.0.1"
+    "uuid": "10.0.0"
   },
   "devDependencies": {
     "@hyrious/esbuild-plugin-commonjs": "^0.2.4",

@@ -1,5 +1,5 @@
 'use client'
-import type { OptionObject } from 'payload/bundle'
+import type { OptionObject } from 'payload'
 
 import {
   Gutter,
@@ -10,7 +10,7 @@ import {
   usePayloadAPI,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { formatDate } from '@payloadcms/ui/server'
+import { formatDate } from '@payloadcms/ui/shared'
 import React, { useState } from 'react'
 
 import type { CompareOption, DefaultVersionsViewProps } from './types.js'

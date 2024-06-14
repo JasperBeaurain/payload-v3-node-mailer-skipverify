@@ -1,8 +1,7 @@
-import type { VisibleEntities } from 'payload/bundle'
-import type { ServerProps } from 'payload/bundle'
+import type { ServerProps, VisibleEntities } from 'payload'
 
 import { AppHeader, EntityVisibilityProvider, NavToggler } from '@payloadcms/ui/client'
-import { RenderCustomComponent } from '@payloadcms/ui/server'
+import { RenderCustomComponent } from '@payloadcms/ui/shared'
 import React from 'react'
 
 import { DefaultNav, type NavProps } from '../../elements/Nav/index.js'

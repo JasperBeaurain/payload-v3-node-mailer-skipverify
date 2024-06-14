@@ -2,7 +2,7 @@ import type { Page } from '@playwright/test'
 
 import { expect, test } from '@playwright/test'
 import path from 'path'
-import { wait } from 'payload/utilities'
+import { wait } from 'payload/shared'
 import { fileURLToPath } from 'url'
 
 import type { PayloadTestSDK } from '../../../helpers/sdk/index.js'
@@ -91,7 +91,7 @@ describe('Upload', () => {
     await uploadImage()
     await expect(page.locator('.file-field .file-details img')).toHaveAttribute(
       'src',
-      '/api/uploads/file/payload-1.jpg',
+      /\/api\/uploads\/file\/payload-1\.jpg(\?.*)?$/,
     )
   })
 

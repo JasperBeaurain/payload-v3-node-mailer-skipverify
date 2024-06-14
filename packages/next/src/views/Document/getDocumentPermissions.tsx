@@ -1,16 +1,16 @@
-import type { DocumentPermissions } from 'payload/bundle'
 import type {
   Data,
+  DocumentPermissions,
   PayloadRequest,
   SanitizedCollectionConfig,
   SanitizedGlobalConfig,
-} from 'payload/bundle'
+} from 'payload'
 
 import {
   hasSavePermission as getHasSavePermission,
   isEditing as getIsEditing,
-} from '@payloadcms/ui/server'
-import { docAccessOperation, docAccessOperationGlobal } from 'payload/bundle'
+} from '@payloadcms/ui/shared'
+import { docAccessOperation, docAccessOperationGlobal } from 'payload'
 
 export const getDocumentPermissions = async (args: {
   collectionConfig?: SanitizedCollectionConfig

@@ -1,4 +1,4 @@
-import type { FindGlobal } from 'payload/bundle'
+import type { FindGlobal } from 'payload'
 
 import toSnakeCase from 'to-snake-case'
 

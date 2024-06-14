@@ -15,9 +15,8 @@ import {
   useEditDepth,
   useFormQueryParams,
 } from '@payloadcms/ui/client'
-import { getFormState } from '@payloadcms/ui/server'
-import { useRouter } from 'next/navigation.js'
-import { useSearchParams } from 'next/navigation.js'
+import { getFormState } from '@payloadcms/ui/shared'
+import { useRouter, useSearchParams } from 'next/navigation.js'
 import React, { Fragment, useCallback } from 'react'
 
 import { LeaveWithoutSaving } from '../../../elements/LeaveWithoutSaving/index.js'

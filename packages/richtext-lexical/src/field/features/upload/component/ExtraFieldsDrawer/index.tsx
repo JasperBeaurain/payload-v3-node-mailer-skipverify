@@ -1,6 +1,6 @@
 'use client'
 import type { FormProps } from '@payloadcms/ui/forms/Form'
-import type { ClientCollectionConfig, FormState } from 'payload/types'
+import type { ClientCollectionConfig, FormState } from 'payload'
 
 import { useModal } from '@faceless-ui/modal'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext.js'
@@ -15,9 +15,9 @@ import {
   useFieldProps,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { getFormState } from '@payloadcms/ui/server'
+import { getFormState } from '@payloadcms/ui/shared'
 import { $getNodeByKey } from 'lexical'
-import { deepCopyObject } from 'payload/utilities'
+import { deepCopyObject } from 'payload/shared'
 import React, { useCallback, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 

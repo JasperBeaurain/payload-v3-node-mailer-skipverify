@@ -1,7 +1,6 @@
-import type { EditViewComponent } from 'payload/bundle'
-import type { SanitizedCollectionConfig, SanitizedGlobalConfig } from 'payload/bundle'
+import type { EditViewComponent, SanitizedCollectionConfig, SanitizedGlobalConfig } from 'payload'
 
-import { isReactComponentOrFunction } from 'payload/bundle'
+import { isReactComponentOrFunction } from 'payload/shared'
 
 export const getCustomViewByKey = (
   views:

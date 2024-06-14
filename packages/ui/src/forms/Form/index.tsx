@@ -1,11 +1,11 @@
 'use client'
-import type { FormState } from 'payload/bundle'
+import type { FormState } from 'payload'
 
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import isDeepEqual from 'deep-equal'
 import { useRouter } from 'next/navigation.js'
 import { serialize } from 'object-to-formdata'
-import { wait } from 'payload/bundle'
+import { wait } from 'payload/shared'
 import QueryString from 'qs'
 import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import { toast } from 'sonner'
@@ -297,7 +297,7 @@ export const Form: React.FC<FormProps> = (props) => {
         setDisabled(false)
 
         if (typeof handleResponse === 'function') {
-          handleResponse(res)
+          handleResponse(res, successToast, errorToast)
           return
         }
 

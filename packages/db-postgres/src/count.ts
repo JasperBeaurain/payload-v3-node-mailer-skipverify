@@ -1,5 +1,4 @@
-import type { SanitizedCollectionConfig } from 'payload/bundle'
-import type { Count } from 'payload/bundle'
+import type { Count, SanitizedCollectionConfig } from 'payload'
 
 import { sql } from 'drizzle-orm'
 import toSnakeCase from 'to-snake-case'

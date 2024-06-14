@@ -1,8 +1,8 @@
-import type { Where } from 'payload/bundle'
+import type { Where } from 'payload'
 
 import httpStatus from 'http-status'
-import { isNumber } from 'payload/bundle'
-import { findVersionsOperationGlobal } from 'payload/bundle'
+import { findVersionsOperationGlobal } from 'payload'
+import { isNumber } from 'payload/shared'
 
 import type { GlobalRouteHandler } from '../types.js'
 

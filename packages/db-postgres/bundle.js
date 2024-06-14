@@ -23,8 +23,6 @@ const resultServer = await esbuild
       '@payloadcms/translations',
       'payload',
       'payload/*',
-      'payload/bundle',
-      'payload/server',
     ],
     minify: true,
     metafile: true,

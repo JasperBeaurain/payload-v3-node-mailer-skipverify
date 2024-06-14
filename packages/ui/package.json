@@ -1,12 +1,13 @@
 {
   "name": "@payloadcms/ui",
-  "version": "3.0.0-beta.45",
+  "version": "3.0.0-beta.47",
   "homepage": "https://payloadcms.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/payloadcms/payload.git",
     "directory": "packages/ui"
   },
+  "sideEffects": false,
   "type": "module",
   "exports": {
     "./assets": {
@@ -62,10 +63,10 @@
       "default": "./src/providers/*/index.tsx",
       "types": "./src/providers/*/index.tsx"
     },
-    "./server": {
-      "import": "./src/exports/server/index.ts",
-      "require": "./src/exports/server/index.ts",
-      "types": "./src/exports/server/index.ts"
+    "./shared": {
+      "import": "./src/exports/shared/index.ts",
+      "require": "./src/exports/shared/index.ts",
+      "types": "./src/exports/shared/index.ts"
     },
     "./utilities/*": {
       "import": "./src/utilities/*.ts",
@@ -121,7 +122,7 @@
     "scheduler": "0.25.0-rc-f994737d14-20240522",
     "sonner": "^1.5.0",
     "use-context-selector": "2.0.0",
-    "uuid": "^9.0.1"
+    "uuid": "10.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.5",
@@ -214,10 +215,10 @@
         "default": "./dist/providers/*/index.js",
         "types": "./dist/providers/*/index.d.ts"
       },
-      "./server": {
-        "import": "./dist/exports/server/index.js",
-        "require": "./dist/exports/server/index.js",
-        "types": "./dist/exports/server/index.d.ts"
+      "./shared": {
+        "import": "./dist/exports/shared/index.js",
+        "require": "./dist/exports/shared/index.js",
+        "types": "./dist/exports/shared/index.d.ts"
       },
       "./utilities/*": {
         "import": "./dist/utilities/*.js",

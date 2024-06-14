@@ -1,15 +1,17 @@
 import type { SerializedDecoratorBlockNode } from '@lexical/react/LexicalDecoratorBlockNode.js'
-import type { ElementFormatType, NodeKey } from 'lexical'
 import type {
   DOMConversionMap,
   DOMConversionOutput,
   DOMExportOutput,
+  ElementFormatType,
   LexicalNode,
+  NodeKey,
   Spread,
 } from 'lexical'
 import type { JSX } from 'react'
 
 import { DecoratorBlockNode } from '@lexical/react/LexicalDecoratorBlockNode.js'
+import ObjectID from 'bson-objectid'
 import { $applyNodeReplacement } from 'lexical'
 import * as React from 'react'
 
@@ -22,6 +24,7 @@ export type UploadData = {
     // unknown, custom fields:
     [key: string]: unknown
   }
+  id: string
   relationTo: string
   value: number | string
 }
@@ -106,8 +109,13 @@ export class UploadNode extends DecoratorBlockNode {
     if (serializedNode.version === 1 && (serializedNode?.value as unknown as { id: string })?.id) {
       serializedNode.value = (serializedNode.value as unknown as { id: string }).id
     }
+    if (serializedNode.version === 2 && !serializedNode?.id) {
+      serializedNode.id = new ObjectID.default().toHexString()
+      serializedNode.version = 3
+    }
 
     const importedData: UploadData = {
+      id: serializedNode.id,
       fields: serializedNode.fields,
       relationTo: serializedNode.relationTo,
       value: serializedNode.value,
@@ -141,7 +149,7 @@ export class UploadNode extends DecoratorBlockNode {
       ...super.exportJSON(),
       ...this.getData(),
       type: this.getType(),
-      version: 2,
+      version: 3,
     }
   }
 
@@ -160,8 +168,15 @@ export class UploadNode extends DecoratorBlockNode {
   }
 }
 
-export function $createUploadNode({ data }: { data: UploadData }): UploadNode {
-  return $applyNodeReplacement(new UploadNode({ data }))
+export function $createUploadNode({
+  data,
+}: {
+  data: Omit<UploadData, 'id'> & Partial<Pick<UploadData, 'id'>>
+}): UploadNode {
+  if (!data?.id) {
+    data.id = new ObjectID.default().toHexString()
+  }
+  return $applyNodeReplacement(new UploadNode({ data: data as UploadData }))
 }
 
 export function $isUploadNode(node: LexicalNode | null | undefined): node is UploadNode {

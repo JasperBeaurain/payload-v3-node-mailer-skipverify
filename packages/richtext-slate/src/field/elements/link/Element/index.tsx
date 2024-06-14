@@ -1,5 +1,5 @@
 'use client'
-import type { FormState } from 'payload/types'
+import type { FormState } from 'payload'
 
 import { useModal } from '@faceless-ui/modal'
 import { getTranslation } from '@payloadcms/translations'
@@ -14,10 +14,9 @@ import {
   useLocale,
   useTranslation,
 } from '@payloadcms/ui/client'
-import { getFormState, reduceFieldsToValues } from '@payloadcms/ui/server'
-import { deepCopyObject } from 'payload/utilities'
-import React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { getFormState, reduceFieldsToValues } from '@payloadcms/ui/shared'
+import { deepCopyObject } from 'payload/shared'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Editor, Node, Transforms } from 'slate'
 import { ReactEditor, useSlate } from 'slate-react'
 

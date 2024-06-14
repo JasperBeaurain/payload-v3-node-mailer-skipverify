@@ -1,5 +1,4 @@
-import type { Field, PayloadRequestWithData, TypeWithID } from 'payload/bundle'
-import type { FindArgs } from 'payload/bundle'
+import type { Field, FindArgs, PayloadRequestWithData, TypeWithID } from 'payload'
 
 import { inArray, sql } from 'drizzle-orm'
 

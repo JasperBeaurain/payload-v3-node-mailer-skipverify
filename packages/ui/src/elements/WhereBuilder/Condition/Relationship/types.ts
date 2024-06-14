@@ -1,6 +1,5 @@
 import type { I18nClient } from '@payloadcms/translations'
-import type { ClientCollectionConfig, RelationshipField } from 'payload/bundle'
-import type { PaginatedDocs } from 'payload/bundle'
+import type { ClientCollectionConfig, PaginatedDocs, RelationshipField } from 'payload'
 
 export type Props = {
   disabled?: boolean
